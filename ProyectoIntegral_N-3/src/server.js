@@ -8,13 +8,13 @@ const Catalogo = require('./modelos/catalogo');
 const Generos = require('./modelos/generos');
 const server = express();
 
-// Configurar la carpeta 'posters' para ser servida estáticamente
+// Servirá la carpeta 'posters' estáticamente
 server.use('/posters', express.static('src/posters'));
 
 // Middlewares
 server.use(express.json());
 
-//  /categorias (servirá información de todas las categorías existentes)
+// Servirá información de todas las categorías existentes
 server.get('/categorias', async (req, res) => {
     try {
         const categorias = await Categorias.findAll();
@@ -24,7 +24,7 @@ server.get('/categorias', async (req, res) => {
     }
 });
 
-//  AGREGADO POR MI : muestra todos los generos disponibles
+// Muestra todos los generos disponibles
 server.get('/generos', async (req, res) => {
     try {
         const generos = await Generos.findAll();
@@ -49,7 +49,7 @@ function agregarRutaPosterCatalogo(catalogo) {
     }
 }
 
-//  /catalogo (servirá el catálogo completo ‘la vista SQL’)
+//  servirá el catálogo completo ‘la vista SQL’
 server.get('/catalogo', async (req, res) => {
     try {
         const catalogo = await Catalogo.findAll();
@@ -60,7 +60,7 @@ server.get('/catalogo', async (req, res) => {
     }
 });
 
-//  AGREGADO POR MI : Trae todas las peliculas que tiene trailers
+// Trae todas las peliculas que tiene trailers
 server.get('/catalogo/trailers', async (req, res) => {
     try {
         const peliculas = await Catalogo.findAll({
@@ -73,7 +73,7 @@ server.get('/catalogo/trailers', async (req, res) => {
     }
 });
 
-// /catalogo/:id (filtrar por código de la película/serie)
+// Filtrar por código de la película/serie
 server.get('/catalogo/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -86,7 +86,7 @@ server.get('/catalogo/:id', async (req, res) => {
     }
 });
 
-// /catalogo/nombre/:nombre (filtrar por nombre o parte del nombre)
+// Filtrar por nombre o parte del nombre
 server.get('/catalogo/nombre/:nombre', async (req, res) => {
     const { nombre } = req.params;
     try {
@@ -132,7 +132,7 @@ async function verificarGenero(genero) {
     return retorno;
 }
 
-// /catalogo/genero/:genero (filtrar por género del contenido)
+// Filtrar por género del contenido
 server.get('/catalogo/genero/:genero', async (req, res) => {
     const { genero } = req.params;
 
@@ -168,7 +168,7 @@ async function verificarCategoria(categoria) {
     return retorno;
 }
 
-// /catalogo/categoria/:categoria (filtrar por serie - película o cualquier otra categoría que pueda existir)
+// Filtrar por serie - película o cualquier otra categoría que pueda existir
 server.get('/catalogo/categoria/:categoria', async (req, res) => {
     const { categoria } = req.params;
 

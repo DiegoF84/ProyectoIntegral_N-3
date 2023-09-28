@@ -56,7 +56,7 @@ El proyecto se baso en la migracion de una base de datos MongoDB a MySQL
 - Tercer_Proyecto_Integrador_-_Argentina_Programa.pdf : Archivo de consigna para hacer la creacion y migracion de datos a MySQL
 ### DIAGRAMA DB DESIGNER
 
-![](https://github.com/pacugliari/API_RESTFul_ProyectoIntegral_N-3/blob/main/Recursos/trailerflix.png?raw=true)
+![](https://github.com/DiegoF84/ProyectoIntegral_N-3/blob/main/ProyectoIntegral_N-3/Recursos/DB-Designer.png?raw=true)
 
 ---
 ### CONFIGURACION DE ENTORNO
